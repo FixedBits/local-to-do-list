@@ -1,23 +1,30 @@
-* {
+*,
+*::before,
+*::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
   background-color: rgb(23, 23, 23);
+  background-image: url(/images/background.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(15px);
+  background-attachment: fixed; /* Keeps the background from zooming */
 }
 
 .container {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #142086, #4e085f);
+  /* background: linear-gradient(135deg, #142086, #4e085f); */
   padding: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid 1.1rem rgba(220, 199, 197, 0.213);
+  border: solid 1.1rem rgba(17, 255, 196, 0.597);
 }
 
 .todo-app {
@@ -26,21 +33,24 @@ body {
   justify-content: center;
   width: 100%;
   max-width: 740px;
-  background: #fff;
-  margin: 100px auto 20px;
-  padding: 40px 30px 70px;
-  border: solid 1.1rem rgb(201, 163, 255);
+  background: #000000c1;
+  margin: 10px auto 0;
+  padding: 5px 0 0;
+  border: solid 1.1rem rgba(17, 255, 196, 0.597);
   border-radius: 20px;
 }
 
 h1,
 h2 {
   color: rgb(255, 91, 91);
-  font-size: 5em;
+  font-size: clamp(2rem, 5vw, 5em);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .container img {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   margin: 1rem;
 }
