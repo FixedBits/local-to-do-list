@@ -8,7 +8,7 @@
 
 body {
   background-color: rgb(23, 23, 23);
-  background-image: url(/images/background.webp);
+  background-image: url(images/background.webp);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
