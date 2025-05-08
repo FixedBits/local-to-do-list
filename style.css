@@ -38,7 +38,7 @@ body {
   background: #000000c1;
   margin: 10px auto 0;
   padding: 5px 0 0;
-  border: solid 1.1rem rgba(17, 255, 196, 0.597);
+  border: solid 1.1rem rgb(17, 255, 196);
   border-radius: 20px;
 }
 
