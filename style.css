@@ -1,87 +1,253 @@
+:root {
+  /* Global color variables */
+  --primary-bg-color: rgb(23, 23, 23);
+  --secondary-bg-color: #000000c1;
+  --border-color: rgb(17, 255, 196);
+  --border-color-translucent: rgba(17, 255, 196, 0.597);
+}
+
+/* Reset default styling for consistency across browsers */
 *,
 *::before,
 *::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
+/* Apply background settings for the entire page */
 body {
-  background-color: rgb(23, 23, 23);
+  background-color: var(--primary-bg-color);
   background-image: url(images/background.webp);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   backdrop-filter: blur(15px);
-  background-attachment: fixed; /* Keeps the background from zooming */
-}
-
-.container {
-  width: 100%;
-  min-height: 100vh;
-  /* background: linear-gradient(135deg, #142086, #4e085f); */
-  padding: 15px;
+  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid 1.1rem rgba(17, 255, 196, 0.597);
+}
+
+/* Outer container to structure the app layout */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1.1rem var(--border-color-translucent);
   border-radius: 2px;
 }
 
+/* Main wrapper for the to-do app */
 .todo-app {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 740px;
-  background: #000000c1;
+  max-width: 1100px;
+  background: var(--secondary-bg-color);
   margin: 10px auto 0;
   padding: 5px 0 0;
-  border: solid 1.1rem rgb(17, 255, 196);
+  border: solid 1.1rem var(--border-color);
   border-radius: 20px;
 }
 
-h1,
-h2 {
-  color: rgb(255, 91, 91);
+/* Style for the main heading */
+h1 {
+  color: var(--border-color);
   font-size: clamp(2rem, 5vw, 5em);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 3.5em;
+  text-transform: uppercase;
 }
 
+/* Styling for images inside the container */
 .container img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   margin: 1rem;
-  /* border: solid 1px rgba(0, 190, 227, 0.954); */
 }
 
+/* Header layout */
 .header-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  /* border: solid 1px rgb(251, 0, 255); */
+  width: 100%;
 }
 
+/* Content section styles */
 .content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  /* border: solid 1px rgb(255, 130, 13); */
+  width: 100%;
 }
 
+/* Remove default list styling */
 ul {
   list-style-type: none;
 }
 
+/* Layout and spacing for the to-do list */
 .todo-list {
-  width: 100%; /* Ensures full width control */
+  width: 80%;
   display: flex;
-  justify-content: flex-start; /* Pushes items to the left */
-  /* border: solid 1px green; */
+  flex-direction: column;
+  justify-content: flex-start;
 }
-/* Themes: will provide option for user to switch app color theme. */
+
+/* Input field styles */
+#todo-input {
+  background: none;
+  padding: 10px 20px;
+  border: solid 1px var(--border-color-translucent);
+  border-radius: 1000px;
+  color: antiquewhite;
+  caret-color: var(--border-color-translucent);
+  width: 100%;
+}
+
+/* Styling for individual to-do items */
+.todo {
+  border: var(--border-color) solid 1px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  padding: 5px 10px;
+  color: antiquewhite;
+}
+
+/* Style for text inside to-do items */
+.todo .todo-txt {
+  padding: 5px;
+  flex-grow: 1;
+  transition: color 1s ease;
+}
+
+/* Input focus styling */
+#todo-input:focus {
+  outline: var(--border-color-translucent) solid 1px;
+}
+
+/* Form container styles */
+form {
+  position: relative;
+  width: 65%;
+}
+
+/* Add button styles */
+#add-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0 20px;
+  margin: 0 0 20px 0;
+  background-color: var(--border-color);
+  border: none;
+  border-radius: 1000px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Delete button styles */
+.delete-btn {
+  padding: 3px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: fill 0.6s ease;
+  fill: #808080;
+}
+
+/* Hover effect for delete button */
+.delete-btn:hover {
+  fill: rgb(195, 47, 47);
+  transition: fill 0.3s ease;
+}
+
+/* Custom checkbox styles */
+.custom-checkbox {
+  padding: 1.1px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: var(--border-color) 2px solid;
+  border-radius: 50%;
+  transition: fill 1s ease;
+}
+
+/* Checked state for checkbox */
+input[type="checkbox"]:checked ~ .custom-checkbox {
+  background-color: var(--border-color);
+}
+
+/* Change checkmark color when checked */
+input[type="checkbox"]:checked ~ .custom-checkbox svg {
+  fill: inherit;
+  transition: 1s ease;
+}
+
+/* Apply strikethrough effect when checked */
+input[type="checkbox"]:checked ~ .todo-txt {
+  text-decoration: line-through;
+  color: #808080;
+  transition: color 1s ease;
+}
+
+/* Hide default checkbox */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 500px) {
+  html {
+    font-size: 9pt;
+  }
+
+  #add-btn {
+    position: unset;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    height: auto;
+  }
+
+  h1 {
+    margin-top: 1px;
+    font-size: 10vw;
+  }
+
+  .todo-app img {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 30px;
+  }
+
+  #todo-input:placeholder-shown {
+    padding: 8px 8px;
+    font-size: 12px;
+  }
+}
+
+/* Themes: Will provide option for user to switch app color theme. */
