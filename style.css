@@ -268,10 +268,11 @@ input[type="checkbox"] {
 
   #todo-input:placeholder-shown {
     padding: 8px 8px;
+    font-size: 12px;
   }
 
   #todo-input {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
