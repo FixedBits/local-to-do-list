@@ -15,9 +15,8 @@
   box-sizing: border-box;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-
 html {
-  font-size: 20pt;
+  font-size: 1.5rem; /* Equivalent to ~20px */
 }
 
 /* Apply background settings for the entire page */
@@ -232,20 +231,27 @@ input[type="checkbox"]:checked ~ .todo-txt {
 input[type="checkbox"] {
   display: none;
 }
+
 .todo:has(input[type="checkbox"]:checked) {
   border-color: #808080; /* Changes border to gray */
+  transition: ease 1s;
 }
+
 /* Responsive styles for smaller screens */
 @media (max-width: 500px) {
   html {
-    font-size: 9pt;
+    font-size: clamp(
+      12px,
+      2vw,
+      18px
+    ); /* Minimum 12px, scales with screen, max 18px */
   }
 
   #add-btn {
     position: unset;
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 5px;
+    margin-top: 10px;
     height: auto;
   }
 
@@ -262,6 +268,9 @@ input[type="checkbox"] {
 
   #todo-input:placeholder-shown {
     padding: 8px 8px;
+  }
+
+  #todo-input {
     font-size: 12px;
   }
 }
