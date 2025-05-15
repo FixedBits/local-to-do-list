@@ -2,7 +2,7 @@
   /* Global color variables */
   --primary-bg-color: rgb(23, 23, 23);
   --secondary-bg-color: #000000c1;
-  --border-color: rgb(17, 255, 120);
+  --border-color: rgba(0, 255, 162, 0.696);
   --border-color-translucent: rgba(17, 255, 196, 0.597);
 }
 
