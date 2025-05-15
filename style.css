@@ -190,10 +190,11 @@ form {
 }
 
 /* Hover effect for delete button */
-.delete-btn:hover,
-.delete-btn:active {
-  fill: rgb(195, 47, 47);
-  transition: fill 0.3s ease;
+@media (hover: hover) {
+  .delete-btn:hover {
+    fill: rgb(195, 47, 47);
+    transition: fill 0.3s ease;
+  }
 }
 
 /* Custom checkbox styles */
