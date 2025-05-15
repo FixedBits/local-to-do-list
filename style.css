@@ -2,7 +2,7 @@
   /* Global color variables */
   --primary-bg-color: rgb(23, 23, 23);
   --secondary-bg-color: #000000c1;
-  --border-color: rgb(17, 255, 196);
+  --border-color: rgb(17, 255, 120);
   --border-color-translucent: rgba(17, 255, 196, 0.597);
 }
 
@@ -13,7 +13,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 html {
   font-size: 1.5rem; /* Equivalent to ~20px */
@@ -190,7 +190,8 @@ form {
 }
 
 /* Hover effect for delete button */
-.delete-btn:hover {
+.delete-btn:hover,
+.delete-btn:active {
   fill: rgb(195, 47, 47);
   transition: fill 0.3s ease;
 }
@@ -210,29 +211,29 @@ form {
 }
 
 /* Checked state for checkbox */
-input[type='checkbox']:checked ~ .custom-checkbox {
+input[type="checkbox"]:checked ~ .custom-checkbox {
   background-color: var(--border-color);
 }
 
 /* Change checkmark color when checked */
-input[type='checkbox']:checked ~ .custom-checkbox svg {
+input[type="checkbox"]:checked ~ .custom-checkbox svg {
   fill: inherit;
   transition: 1s ease;
 }
 
 /* Apply strikethrough effect when checked */
-input[type='checkbox']:checked ~ .todo-txt {
+input[type="checkbox"]:checked ~ .todo-txt {
   text-decoration: line-through;
   color: #808080;
   transition: color 1s ease;
 }
 
 /* Hide default checkbox */
-input[type='checkbox'] {
+input[type="checkbox"] {
   display: none;
 }
 
-.todo:has(input[type='checkbox']:checked) {
+.todo:has(input[type="checkbox"]:checked) {
   border-color: #808080; /* Changes border to gray */
   transition: ease 1s;
 }
@@ -240,7 +241,11 @@ input[type='checkbox'] {
 /* Responsive styles for smaller screens */
 @media (max-width: 500px) {
   html {
-    font-size: clamp(12px, 2vw, 18px); /* Minimum 12px, scales with screen, max 18px */
+    font-size: clamp(
+      12px,
+      2vw,
+      18px
+    ); /* Minimum 12px, scales with screen, max 18px */
   }
 
   #add-btn {
