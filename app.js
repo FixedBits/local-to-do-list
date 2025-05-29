@@ -1,27 +1,17 @@
-// Selects the form element
-const todoForm = document.querySelector("form");
+// Selecting Elements
+const todoForm = document.querySelector("form"); // Selects the form element
+const todoInput = document.getElementById("todo-input"); // Selects input field
+const todoListUL = document.getElementById("todo-list"); // Selects the list that displays tasks
 
-// Selects the input field where users type their tasks
-const todoInput = document.getElementById("todo-input");
-
-// Selects the unordered list (UL) that displays to-do items
-const todoListUL = document.getElementById("todo-list");
-
-// Creates an empty array to store all to-do items
+// Stores all tasks in an array
 let allTodos = [];
-
-// Listens for the "submit" event on the form
-todoForm.addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevents auto-refresh after submission
-  addTodo(); // Calls function to add a new task
-});
 
 // Function to add a new to-do item
 function addTodo() {
-  const todoText = todoInput.value.trim(); // Gets input value and removes extra spaces
+  const todoText = todoInput.value.trim(); // Gets the typed input value and removes extra spaces at the beginning and end of the value.
   if (todoText.length > 0) {
     // Checks if input is not empty
-    allTodos.push(todoText); // Adds new task to the array
+    allTodos.push(todoText); // Adds (.push) new task to the array
     updateTodoList(); // Updates the UI after adding a task
     todoInput.value = ""; // Clears the input field
   } else {
@@ -31,7 +21,7 @@ function addTodo() {
 
 // Function to update the displayed to-do list
 function updateTodoList() {
-  todoListUL.innerHTML = ""; // Clears old list before updating
+  todoListUL.innerHTML = ""; // Replaces old list with the existing tasks plus the new task
   allTodos.forEach((todo, todoIndex) => {
     // Loops through all to-do items
     const todoItem = createTodoItem(todo, todoIndex); // Creates a new list item for each task
@@ -63,3 +53,9 @@ function createTodoItem(todo, todoIndex) {
 
   return todoLI; // Returns the created list item
 }
+
+// Listens for the "submit" event on the form
+todoForm.addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevents auto-refresh after submission
+  addTodo(); // Calls function to add a new task
+});
