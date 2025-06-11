@@ -2,22 +2,41 @@
 const todoForm = document.querySelector("form"); // Selects the form element
 const todoInput = document.getElementById("todo-input"); // Selects input field
 const todoListUL = document.getElementById("todo-list"); // Selects the list that displays tasks
+
 // Stores all tasks in an array
-let allTodos = [];
+let allTodos = getTodos();
+updateTodoList();
+
+/**
+ * Event listener for the "submit" event on the form.
+ * - Prevents auto-refresh after submission.
+ * - Calls function to add a new task.
+ */
+todoForm.addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevents auto-refresh after submission
+  addTodo(); // Calls function to add a new task
+});
 
 /**
  * Function to add a new to-do item.
  * - Retrieves the user's input.
  * - Checks if it's non-empty before adding it to the list.
+ * - Stores task in an object with a completed status.
  * - Updates the UI after adding a task.
  */
 function addTodo() {
-  const todoText = todoInput.value.trim(); // Gets the typed value - removes extra spaces at the start and end of the value.
+  const todoText = todoInput.value.trim(); // Gets the typed value - removes extra spaces at the start and end
 
   if (todoText.length > 0) {
-    allTodos.unshift(todoText); // Adds new task to the top of the array
-    todoInput.value = ""; // Clears the input field by setting an empty string
+    const todoObject = {
+      text: todoText,
+      completed: false, // Initializes task as incomplete
+    };
+
+    allTodos.unshift(todoObject); // Adds new task to the top of the array
+    todoInput.value = ""; // Clears the input field
     updateTodoList(); // Updates the UI after adding a task
+    saveTodos();
   } else {
     alert("Oops! You need to enter a task before adding it to the list."); // Alerts the user if they submit an empty task
   }
@@ -29,7 +48,7 @@ function addTodo() {
  * - Loops through the stored tasks and creates UI elements for each.
  */
 function updateTodoList() {
-  todoListUL.innerHTML = ""; // Replaces old list with the existing tasks plus the new task.
+  todoListUL.innerHTML = ""; // Replaces old list with the existing tasks plus the new task
   allTodos.forEach((todo, todoIndex) => {
     const todoItem = createTodoItem(todo, todoIndex); // Creates a new list item for each task
     todoListUL.append(todoItem); // Adds the new task to the UI
@@ -40,11 +59,13 @@ function updateTodoList() {
  * Function to create a new to-do list item.
  * - Generates a unique ID for the task.
  * - Defines the HTML structure including a checkbox, labels, and delete button.
+ * - Adds event listeners for task completion and deletion.
  * - Returns the created list item.
  */
 function createTodoItem(todo, todoIndex) {
   const todoId = "todo-" + todoIndex; // Generates a unique ID for each item
   const todoLI = document.createElement("li"); // Creates a new <li> element
+  const todoText = todo.text;
   todoLI.className = "todo"; // Adds a CSS class for styling
 
   todoLI.innerHTML = `    
@@ -54,7 +75,7 @@ function createTodoItem(todo, todoIndex) {
             <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
         </svg>
     </label>
-    <label for="${todoId}" class="todo-txt">${todo}</label> <!-- Displays the task text -->
+    <label for="${todoId}" class="todo-txt">${todoText}</label> <!-- Displays the task text -->
     <button class="delete-btn"> <!-- Delete button to remove the task -->
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
             <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
@@ -62,15 +83,53 @@ function createTodoItem(todo, todoIndex) {
     </button>
   `;
 
+  // Add event listener to delete button
+  const deletebtn = todoLI.querySelector(".delete-btn");
+  deletebtn.addEventListener("click", () => {
+    deleteTodoItem(todoIndex);
+  });
+
+  // Add event listener to checkbox to mark task as completed
+  const checkbox = todoLI.querySelector("input");
+  checkbox.addEventListener("change", () => {
+    allTodos[todoIndex].completed = checkbox.checked; // Updates completion status
+    saveTodos(); // Saves the updated task list
+  });
+
+  // Set checkbox state based on stored completion status
+  checkbox.checked = todo.completed;
+
   return todoLI; // Returns the created list item
 }
 
 /**
- * Event listener for the "submit" event on the form.
- * - Prevents auto-refresh after submission.
- * - Calls function to add a new task.
+ * Function to delete a to-do item.
+ * - Removes the selected task from the array.
+ * - Updates localStorage with the new task list.
+ * - Refreshes the UI.
  */
-todoForm.addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevents auto-refresh after submission
-  addTodo(); // Calls function to add a new task
-});
+function deleteTodoItem(todoIndex) {
+  allTodos = allTodos.filter((_, i) => i !== todoIndex); // Filters out the selected task
+  saveTodos(); // Saves the updated task list to localStorage
+  updateTodoList(); // Refreshes the UI to reflect changes
+}
+
+/**
+ * Function to save the to-do list to localStorage.
+ * - Converts the task array into a JSON string.
+ * - Stores the string in localStorage under the key "todos".
+ */
+function saveTodos() {
+  const todoJson = JSON.stringify(allTodos); // Converts the array into a JSON string
+  localStorage.setItem("todos", todoJson); // Saves the JSON string in localStorage
+}
+
+/**
+ * Function to retrieve the stored to-do list from localStorage.
+ * - Retrieves the stored JSON string or defaults to an empty array.
+ * - Parses the JSON string back into an array format.
+ */
+function getTodos() {
+  const todos = localStorage.getItem("todos") || "[]"; // Retrieves stored tasks or defaults to an empty array
+  return JSON.parse(todos); // Parses the JSON string into a JavaScript array
+}
