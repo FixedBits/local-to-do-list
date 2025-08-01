@@ -40,8 +40,7 @@ function addTodo() {
   } else {
     alert("Oops! You need to enter a task before adding it to the list."); // Alerts the user if they submit an empty task
   }
-}    
-
+}
 
 /**
  * Function to update the displayed to-do list.
