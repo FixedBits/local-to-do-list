@@ -70,7 +70,7 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 600;
-  font-size: 3.5em;
+  font-size: 3rem;
   text-transform: uppercase;
 }
 
@@ -160,6 +160,7 @@ ul {
 /* Input focus styling when selected */
 #todo-input:focus {
   outline: var(--border-color-translucent) solid 1px;
+  height: 2.1em;
 }
 
 /* Form container styles */
@@ -281,15 +282,14 @@ input[type="checkbox"] {
 
   #add-btn {
     position: unset;
-    width: 60%;
+    width: 70%;
     padding: 5px;
-    margin-top: 10px;
+    margin: 30px 0;
     height: auto;
   }
 
   h1 {
-    margin-top: 1px;
-    font-size: 13vw;
+    font-size: 3rem;
   }
 
   .todo-app img {
@@ -304,17 +304,18 @@ input[type="checkbox"] {
   }
 
   #todo-input {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .todo-list {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: baseline;
   }
 
   form {
-    width: 80%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
