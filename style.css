@@ -160,7 +160,6 @@ ul {
 /* Input focus styling when selected */
 #todo-input:focus {
   outline: var(--border-color-translucent) solid 1px;
-  height: 2.1em;
 }
 
 /* Form container styles */
@@ -299,7 +298,6 @@ input[type="checkbox"] {
   }
 
   #todo-input:placeholder-shown {
-    padding: 0 8px;
     font-size: 12px;
   }
 
