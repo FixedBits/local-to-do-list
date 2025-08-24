@@ -26,7 +26,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(50px);
   background-attachment: fixed;
   display: flex;
   align-items: center;
@@ -272,11 +272,8 @@ input[type="checkbox"] {
 /* Responsive styles for smaller screens */
 @media (max-width: 500px) {
   html {
-    font-size: clamp(
-      12px,
-      2vw,
-      18px
-    ); /* Minimum 12px, scales with screen, max 18px */
+    font-size: clamp(16px, 2vw, 20px);
+    /* Minimum 12px, scales with screen, max 18px */
   }
 
   #add-btn {
