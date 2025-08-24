@@ -9,7 +9,7 @@ A lightweight, privacy-first To-Do List app built with vanilla JavaScript. Tasks
 - ✅ Add tasks instantly via a simple form
 - 📌 Tasks are stored locally—no cloud, no account, no tracking
 - 🗂️ Mark tasks as completed with a custom checkbox UI
-- 🖊️ Edit tasks inline with a sleek prompt-based editor  
+- 🖊️ Edit tasks inline with prompt editor  
 - 🗑️ Delete tasks individually
 - 🔄 Persistent storage using `localStorage`
 
