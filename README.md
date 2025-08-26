@@ -19,7 +19,7 @@ A lightweight, privacy-first To-Do List app built with vanilla JavaScript. Tasks
 
 This app is actively being developed. Upcoming improvements include:
 
-- ✏️ Task editing functionality
+- ~~✏️ Task editing functionality~~
 - 📱 Responsive design for mobile devices
 - 🌙 Optional dark mode
 
