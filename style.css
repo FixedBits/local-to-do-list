@@ -185,6 +185,22 @@ form {
   cursor: pointer;
 }
 
+/*  Emoji button styles  -work in progress */
+/* .emoji-btn {
+  position: static;
+  top: 0;
+  left: 0;
+  height: auto;
+  padding: 10px;
+  background-color: gray;
+  border: none;
+  border-radius: 50px;
+  font: inherit;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+} */
+
 /* Delete button styles */
 .delete-btn {
   padding: 3px;
