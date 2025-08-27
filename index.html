@@ -17,9 +17,14 @@
     <div class="container">
       <div class="todo-app">
         <div class="header-wrapper">
-          <h1>To-Do</h1>
+          <div class="title-wrapper">
+            <h1>To-Do</h1>
+            <p class="on-the-go" style="color: rgb(255, 15, 123); font-size: 15px">On The Go</p>
+          </div>
+
           <img src="images/app-icon.webp" alt="To-Do List App Icon" loading="lazy" />
         </div>
+        <p style="color: rgba(239, 15, 255, 0.743); font-size: 15px">App actively being developed</p>
         <div class="content-wrapper">
           <form>
             <input id="todo-input" type="text" placeholder="Write a task..." autocomplete="off" />
@@ -31,7 +36,6 @@
             <!-- By default, button is type='submit' when inside a form element -->
             <button id="add-btn">ADD</button>
           </form>
-          <p style="color: rgb(255, 0, 72); font-size: 20px">Emoji Button in Progress</p>
 
           <ul class="todo-list" id="todo-list">
             <!-- <li class="todo">
