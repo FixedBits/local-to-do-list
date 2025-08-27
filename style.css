@@ -60,24 +60,43 @@ body {
   border-radius: 20px;
   min-height: 80vh;
   box-shadow: inset 2px 2px 3px rgba(39, 255, 215, 0.225);
+  overflow: hidden;
 }
 
 .title-wrapper {
-  display: flex;
+  position: relative;
   flex-direction: column;
   align-items: flex-end;
   overflow: auto;
   cursor: default;
+  width: fit-content;
+  overflow: visible; /* This is key */
+  display: inline-block;
 }
+
 p.on-the-go {
-  border: 3px solid rgb(0, 255, 208);
   border-radius: 15px;
   margin: 0;
-  padding: 7px;
   text-wrap: nowrap;
   display: flex;
-  width: fit-content;
+  gap: 3px;
   overflow: hidden;
+  background: white;
+  background: linear-gradient(to right, #ff5324, #8102e1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: rgba(95, 163, 163, 0.868) solid 2px;
+}
+
+.on-the-go {
+  position: absolute;
+  top: 70px; /* Adjust as needed */
+  left: 150px; /* Adjust as needed */
+  /* transform: rotateZ(20deg); */
+  transform-origin: center;
+  padding: 4px;
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
 }
 
 /* Style for the main heading */
@@ -89,7 +108,12 @@ h1 {
   text-overflow: ellipsis;
   font-weight: 600;
   font-size: 3rem;
+  position: relative;
   text-transform: uppercase;
+  background: linear-gradient(to right, #24ffa7, #1aabef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 0.5px rgba(42, 255, 191, 0.597);
 }
 
 /* Styling for images inside the container */
@@ -308,6 +332,12 @@ input[type="checkbox"] {
   html {
     font-size: clamp(16px, 2vw, 20px);
     /* Minimum 12px, scales with screen, max 18px */
+  }
+
+  .on-the-go {
+    top: -10px;
+    left: 110px;
+    transform: rotateZ(20deg);
   }
 
   #add-btn {
