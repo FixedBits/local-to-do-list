@@ -56,11 +56,13 @@ body {
   background: var(--secondary-bg-color);
   margin: 0 auto 0;
   padding: 1px 0 0;
-  border: solid 5px var(--border-color-translucent);
+  /* border: solid 5px var(--border-color-translucent); */
   border-radius: 20px;
   min-height: 80vh;
-  box-shadow: inset 2px 2px 3px rgba(39, 255, 215, 0.225);
   overflow: hidden;
+  background: linear-gradient(to right, #000000e2, #220c0ed5);
+  border: 5px solid transparent;
+  background-origin: border-box;
 }
 
 .title-wrapper {
@@ -70,33 +72,41 @@ body {
   overflow: auto;
   cursor: default;
   width: fit-content;
-  overflow: visible; /* This is key */
+  overflow: visible;
   display: inline-block;
 }
 
-p.on-the-go {
-  border-radius: 15px;
-  margin: 0;
-  text-wrap: nowrap;
-  display: flex;
-  gap: 3px;
-  overflow: hidden;
-  background: white;
-  background: linear-gradient(to right, #ff5324, #8102e1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  border: rgba(95, 163, 163, 0.868) solid 2px;
+.on-the-go-container {
+  border-image-slice: 1;
+  opacity: 86%;
 }
 
 .on-the-go {
   position: absolute;
-  top: 70px; /* Adjust as needed */
-  left: 150px; /* Adjust as needed */
-  /* transform: rotateZ(20deg); */
+  top: 75px;
+  left: 175px;
   transform-origin: center;
-  padding: 4px;
-  border-radius: 4px;
   backdrop-filter: blur(10px);
+  /* transform: rotateZ(20deg); */
+  box-shadow: -2px 1px 4px rgba(24, 244, 240, 0.17);
+}
+
+p.on-the-go {
+  margin: 0;
+  text-wrap: nowrap;
+  display: flex;
+  gap: 3px;
+  border-radius: 1000px;
+  overflow: hidden;
+  color: #00ffea23;
+  padding: 1px 7px;
+  background: linear-gradient(to right, #10d9f3, #e41c29);
+  /* -webkit-text-fill-color: transparent; */
+  -webkit-background-clip: text;
+  border-bottom: 3px solid transparent;
+  font-weight: 600;
+  opacity: 86%;
+  font-size: 10px;
 }
 
 /* Style for the main heading */
@@ -110,10 +120,10 @@ h1 {
   font-size: 3rem;
   position: relative;
   text-transform: uppercase;
-  background: linear-gradient(to right, #24ffa7, #1aabef);
+  background: linear-gradient(to right, #ff244ce6, #0daec7e4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 0.5px rgba(42, 255, 191, 0.597);
+  text-shadow: 0 0 0.5px rgba(189, 255, 21, 0.116);
 }
 
 /* Styling for images inside the container */
@@ -169,7 +179,7 @@ ul {
   box-shadow: 1px 2px 10px rgba(250, 240, 230, 0.187);
   width: 100%;
   height: 50px;
-  font-size: 25px;
+  font-size: 23px;
 }
 
 #todo-input:placeholder-shown {
@@ -185,8 +195,12 @@ ul {
   padding: 5px 10px;
   color: antiquewhite;
   border: solid 1px rgba(0, 255, 162, 0.696);
-  font-size: clamp(1rem, 1.2vw, 1.5rem);
+  font-size: clamp(0.9rem, 1vw, 1.2rem);
   transition: 0.5s ease;
+  background: linear-gradient(to right, #03d1ff74, #e0271262);
+  border: 5px solid transparent;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
 /* Style for text inside to-do items */
@@ -225,6 +239,10 @@ form {
   font-size: 22px;
   font-weight: 600;
   cursor: pointer;
+  background: linear-gradient(to right, #ff244ce6, #0daec7e4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 0.5px rgba(189, 255, 21, 0.116);
 }
 
 /*  Emoji button styles  -work in progress */
@@ -245,23 +263,23 @@ form {
 
 /* Delete button styles */
 .delete-btn {
-  padding: 3px;
+  padding-left: 2px;
+  margin: 4px;
   background: none;
   border: none;
   cursor: pointer;
   transition: fill 0.6s ease;
-  fill: #3a3a3a;
+  fill: #6565658b;
 }
 
 /* Edit button styles */
 .edit-btn {
-  margin-left: 1.5rem;
-  padding: 3px;
+  margin: 0 0.2rem 0 2rem;
   background: none;
   border: none;
   cursor: pointer;
   transition: fill 0.6s ease;
-  fill: #3a3a3a;
+  fill: #6565658b;
 }
 
 /* Hover effect for delete button */
@@ -290,13 +308,13 @@ form {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: rgba(0, 255, 179, 0.64) 2px solid;
+  border: rgba(5, 137, 124, 0.689) 2px solid;
   border-radius: 50%;
   transition: 0.4s ease;
 }
 
 .custom-checkbox:hover {
-  border: rgba(5, 137, 93, 0.689) 2px solid;
+  border: rgba(0, 255, 179, 0.64) 2px solid;
 }
 /* Checked state for checkbox */
 input[type="checkbox"]:checked ~ .custom-checkbox {
@@ -323,8 +341,9 @@ input[type="checkbox"] {
 }
 
 .todo:has(input[type="checkbox"]:checked) {
-  border-color: #00000085; /* Changes border to gray */
+  border-color: 1px #00000085; /* Changes border to gray */
   transition: ease 1s;
+  background: rgb(15, 15, 15);
 }
 
 /* Responsive styles for smaller screens */
@@ -335,17 +354,29 @@ input[type="checkbox"] {
   }
 
   .on-the-go {
-    top: -10px;
+    top: 50px;
     left: 110px;
-    transform: rotateZ(20deg);
+    /* transform: rotateZ(20deg); */
+    border-radius: 4px;
+    padding: 1.5px 4px;
+  }
+
+  p.on-the-go {
+    font-size: 8px;
+    padding: 0 4px;
   }
 
   #add-btn {
     position: unset;
-    width: 70%;
+    width: 40%;
     padding: 5px;
     margin: 30px 0;
     height: auto;
+
+    /* Override gradient styles */
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: initial;
+    color: #04e1bce3;
   }
 
   h1 {
@@ -363,7 +394,7 @@ input[type="checkbox"] {
   }
 
   #todo-input {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .todo-list {

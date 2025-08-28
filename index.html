@@ -19,16 +19,16 @@
         <div class="header-wrapper">
           <div class="title-wrapper">
             <h1 class="gradient-text">To-Do</h1>
-            <p class="on-the-go">
-              <span style="font-size: 12px">On</span>
-              <span style="font-size: 10px">the</span>
-              <span style="font-size: 12px">Go</span>
-            </p>
+            <div class="on-the-go-container">
+              <p class="on-the-go">
+                <span> Local</span>
+                <span>Storage</span>
+              </p>
+            </div>
           </div>
 
           <img src="images/app-icon.webp" alt="To-Do List App Icon" loading="lazy" />
         </div>
-        <p style="color: rgba(15, 255, 251, 0.247); font-size: 15px">App actively being developed</p>
         <div class="content-wrapper">
           <form>
             <input id="todo-input" type="text" placeholder="Write a task..." autocomplete="off" />
@@ -40,6 +40,7 @@
             <!-- By default, button is type='submit' when inside a form element -->
             <button id="add-btn">ADD</button>
           </form>
+          <p style="color: rgba(15, 255, 251, 0.247); font-size: 15px">App actively being developed</p>
 
           <ul class="todo-list" id="todo-list">
             <!-- <li class="todo">
