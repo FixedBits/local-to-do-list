@@ -1,9 +1,9 @@
 :root {
-  /* Global color variables - UPDATING COLORS */
-  --primary-bg-color: rgb(23, 23, 23);
-  --secondary-bg-color: #000000c1;
-  --border-color: rgba(0, 255, 162, 0.696);
-  --border-color-translucent: rgba(17, 255, 196, 0.597);
+  /* Global color variables for theme customization */
+  --primary-bg-color: rgb(23, 23, 23); /* Main background color */
+  --secondary-bg-color: #000000c1; /* Semi-transparent overlay for containers */
+  --border-color: rgba(0, 255, 162, 0.696); /* Accent border color */
+  --border-color-translucent: rgba(17, 255, 196, 0.597); /* Lighter accent for hover/focus */
 }
 
 /* Reset default styling for consistency across browsers */
@@ -15,338 +15,357 @@
   box-sizing: border-box;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+
 html {
-  font-size: 1.5rem; /* Equivalent to ~20px */
+  font-size: 1.5rem; /* Base font size (~24px); scales with rem units */
 }
 
 /* Apply background settings for the entire page */
 body {
-  background-color: var(--primary-bg-color);
-  background-image: url(images/background.webp);
+  background-color: var(--primary-bg-color); /* Fallback background */
+  background-image: url(images/background.webp); /* Background image */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  backdrop-filter: blur(50px);
-  background-attachment: fixed;
+  backdrop-filter: blur(50px); /* Softens background image */
+  background-attachment: fixed; /* Keeps image static on scroll */
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 /* Outer container to structure the app layout */
 .container {
-  width: 100%;
-  min-height: 100vh;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* border: solid 1.1rem var(--border-color-translucent); */
-  border-radius: 2px;
+  width: 100%; /* Full width of the viewport */
+  min-height: 100vh; /* Ensures full vertical height coverage */
+  padding: 10px; /* Outer spacing around the container */
+  display: flex; /* Enables flexbox layout */
+  align-items: center; /* Vertically centers child elements */
+  justify-content: center; /* Horizontally centers child elements */
 }
 
 /* Main wrapper for the to-do app */
 .todo-app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 95%;
-  background: var(--secondary-bg-color);
-  margin: 0 auto 0;
-  padding: 1px 0 0;
-  /* border: solid 5px var(--border-color-translucent); */
-  border-radius: 20px;
-  min-height: 80vh;
-  overflow: hidden;
-  background: linear-gradient(to right, #000000e2, #220c0ed5);
-  border: 5px solid transparent;
-  background-origin: border-box;
+  display: flex; /* Flex container for layout */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center children vertically */
+  width: 100%; /* Full width of parent container */
+  max-width: 95%; /* Prevents overflow on large screens */
+  background: var(--secondary-bg-color); /* Fallback background */
+  margin: 0 auto 0; /* Horizontally centers the app */
+  padding: 1px 0 0; /* Minimal top padding */
+  /* Optional border for visual emphasis */
+  border-radius: 20px; /* Rounded corners for visual softness */
+  min-height: 80vh; /* Ensures app fills most of the viewport */
+  overflow: hidden; /* Prevents content from spilling out */
+  background: linear-gradient(to right, #000000e2, #220c0ed5); /* Gradient overlay */
+  border: 5px solid transparent; /* Used for layered background effects */
+  background-origin: border-box; /* Ensures gradient respects border box */
 }
 
 .title-wrapper {
-  position: relative;
-  flex-direction: column;
-  align-items: flex-end;
-  overflow: auto;
-  cursor: default;
-  width: fit-content;
-  overflow: visible;
-  display: inline-block;
+  position: relative; /* Enables absolute positioning for children */
+  flex-direction: column; /* Intended for vertical stacking (not active without display:flex) */
+  align-items: flex-end; /* Aligns children to the right (not active without display:flex) */
+  overflow: auto; /* Enables scroll if content overflows */
+  cursor: default; /* Prevents text selection cursor */
+  width: fit-content; /* Shrinks to fit content width */
+  overflow: visible; /* Overrides previous overflow setting */
+  display: inline-block; /* Allows inline positioning with block behavior */
 }
 
-.on-the-go-container {
-  border-image-slice: 1;
-  opacity: 86%;
+.local-storage-container {
+  border-image-slice: 1; /* Reserved for future border-image use */
+  opacity: 86%; /* Slight transparency for visual layering */
 }
 
-.on-the-go {
-  position: absolute;
-  top: 75px;
-  left: 175px;
-  transform-origin: center;
-  backdrop-filter: blur(10px);
-  /* transform: rotateZ(20deg); */
-  box-shadow: -2px 1px 4px rgba(24, 244, 240, 0.17);
+.local-storage {
+  position: absolute; /* Positioned relative to .title-wrapper */
+  top: 75px; /* Vertical offset from top of parent */
+  left: 175px; /* Horizontal offset from left of parent */
+  backdrop-filter: blur(21px); /* Softens background behind element */
+  /* transform: rotateZ(20deg); */ /* Optional rotation for stylized effect */
+  /* transform-origin: center; */ /* Defines pivot point for rotation */
+  box-shadow: -2px 1px 4px rgba(24, 244, 240, 0.17); /* Subtle glow for depth */
 }
 
-p.on-the-go {
-  margin: 0;
-  text-wrap: nowrap;
-  display: flex;
-  gap: 3px;
-  border-radius: 1000px;
-  overflow: hidden;
-  color: #00ffea23;
-  padding: 1px 7px;
-  background: linear-gradient(to right, #10d9f3, #e41c29);
-  /* -webkit-text-fill-color: transparent; */
-  -webkit-background-clip: text;
-  border-bottom: 3px solid transparent;
-  font-weight: 600;
-  opacity: 86%;
-  font-size: 10px;
+p.local-storage {
+  margin: 0; /* Removes default paragraph spacing */
+  text-wrap: nowrap; /* Prevents line breaks */
+  display: flex; /* Enables horizontal layout */
+  gap: 3px; /* Spacing between child elements */
+  border-radius: 1000px; /* Creates pill shape */
+  overflow: hidden; /* Clips overflowing content */
+  color: #00ffea23; /* Transparent fallback color */
+  padding: 1px 7px; /* Internal spacing */
+  background: linear-gradient(to right, #10d9f3, #e41c29); /* Gradient text fill */
+  /* -webkit-text-fill-color: transparent; */ /* Optional transparent text fill */
+  -webkit-background-clip: text; /* Clips background to text shape */
+  border-bottom: 3px solid transparent; /* Placeholder for underline effect */
+  font-weight: 600; /* Semi-bold text */
+  opacity: 86%; /* Slight transparency */
+  font-size: 10px; /* Small font size for tag */
 }
 
 /* Style for the main heading */
 h1 {
-  color: var(--border-color);
-  font-size: clamp(2rem, 5vw, 5em);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: 600;
-  font-size: 3rem;
-  position: relative;
-  text-transform: uppercase;
-  background: linear-gradient(to right, #ff244ce6, #0daec7e4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 0.5px rgba(189, 255, 21, 0.116);
+  color: var(--border-color); /* Fallback color if gradient fails */
+  font-size: clamp(2rem, 5vw, 5em); /* Responsive font sizing */
+  white-space: nowrap; /* Prevents line breaks */
+  overflow: hidden; /* Hides overflow text */
+  text-overflow: ellipsis; /* Adds "..." to overflowed text */
+  font-weight: 600; /* Semi-bold heading */
+  font-size: 3rem; /* Explicit fallback size */
+  position: relative; /* Enables layering effects */
+  text-transform: uppercase; /* Converts text to all caps */
+  background: linear-gradient(to right, #ff244ce6, #0daec7e4); /* Gradient text fill */
+  -webkit-background-clip: text; /* Clips gradient to text */
+  -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+  text-shadow: 0 0 0.5px rgba(189, 255, 21, 0.116); /* Soft glow around text */
 }
 
 /* Styling for images inside the container */
 .container img {
-  width: 150px;
-  height: 150px;
-  margin: 1rem;
+  width: 150px; /* Fixed width */
+  height: 150px; /* Fixed height */
+  margin: 1rem; /* Spacing around image */
 }
 
 /* Header layout */
 .header-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  width: 100%;
+  display: flex; /* Flex container for horizontal layout */
+  align-items: center; /* Vertically centers items */
+  justify-content: center; /* Horizontally centers items */
+  gap: 5px; /* Spacing between child elements */
+  width: 100%; /* Full width of parent */
 }
 
 /* Content section styles */
 .content-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  width: 100%;
-  margin-bottom: 2rem;
+  display: flex; /* Flex container for vertical layout */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center children vertically */
+  gap: 2rem; /* Vertical spacing between items */
+  width: 100%; /* Full width of parent */
+  margin-bottom: 2rem; /* Space below content */
 }
 
 /* Remove default list styling */
 ul {
-  list-style-type: none;
+  list-style-type: none; /* Removes bullet points */
 }
 
 /* Layout and spacing for the to-do list */
 .todo-list {
-  width: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  overflow: hidden;
+  width: 80%; /* Restricts list width */
+  display: flex; /* Flex container for wrapping items */
+  align-items: center; /* Vertically centers items */
+  justify-content: center; /* Horizontally centers items */
+  flex-wrap: wrap; /* Allows items to wrap to next line */
+  overflow: hidden; /* Prevents overflow from spilling out */
 }
 
 /* Input field styles */
 #todo-input {
-  background: none;
-  padding: 10px 20px;
-  border: solid 1px rgb(27, 27, 27);
-  border-radius: 1000px;
-  color: rgb(250, 225, 215);
-  caret-color: var(--border-color-translucent);
-  box-shadow: 1px 2px 10px rgba(250, 240, 230, 0.187);
-  width: 100%;
-  height: 50px;
-  transition: ease 1s;
-  font-size: 15px;
+  background: none; /* Transparent background */
+  padding: 10px 90px 10px 20px; /* Internal spacing */
+  border: solid 1px rgb(27, 27, 27); /* Dark border */
+  border-radius: 1000px; /* Pill-shaped input */
+  color: rgb(250, 225, 215); /* Light text color */
+  caret-color: var(--border-color-translucent); /* Custom caret color */
+  box-shadow: 1px 2px 8px rgba(250, 240, 230, 0.187); /* Soft shadow */
+  width: 100%; /* Full width of parent */
+  height: 50px; /* Fixed height */
+  transition: ease 0.4s; /* Smooth transitions */
+  font-size: 17px; /* Base font size */
 }
 
 #todo-input:placeholder-shown {
-  font-size: 17px;
+  font-size: 18px; /* Slightly larger font when placeholder is visible */
 }
 
 /* Styling for individual to-do items */
 .todo {
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  margin: 10px;
-  padding: 1px 5px;
-  color: antiquewhite;
-  border: solid 1px rgba(0, 255, 162, 0.696);
-  font-size: clamp(0.7rem, 1vw, 1.1rem);
-  transition: 0.5s ease;
-  background: linear-gradient(to right, #03d1ff74, #e0271262);
-  border: 5px solid transparent;
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+  border-radius: 20px; /* Rounded corners */
+  display: flex; /* Flex container for layout */
+  align-items: center; /* Vertically centers content */
+  margin: 10px; /* Spacing around item */
+  padding: 1px 5px; /* Internal spacing */
+  color: antiquewhite; /* Light text color */
+  border: solid 1px rgba(0, 255, 162, 0.696); /* Accent border */
+  font-size: clamp(0.7rem, 1vw, 1.1rem); /* Responsive font size */
+  transition: 0.4s ease; /* Smooth transitions */
+  background-color: rgba(25, 25, 25, 0.558); /* Semi-transparent background */
+  backdrop-filter: blur(20px); /* Softens background */
+  border: 0.6px solid transparent; /* Placeholder border */
+  background-origin: border-box; /* Ensures background respects border */
+  background-clip: padding-box, border-box; /* Clips background to padding and border */
+  background: rgba(0, 0, 0, 0.589); /* Final background layer */
 }
 
+.todo:hover {
+  /* Optional gradient background */
+  backdrop-filter: blur(20px); /* Maintains blur on hover */
+  transition: 0.3s ease; /* Faster transition on hover */
+  /* Optional bottom border */
+  filter: drop-shadow(1px 1px 2px rgba(17, 105, 160, 0.358)); /* Glow effect */
+}
 /* Style for text inside to-do items */
 .todo .todo-txt {
-  padding: 5px;
-  flex-grow: 1;
-  transition: color 1s ease;
-  white-space: normal; /* Allows text to wrap */
-  overflow-wrap: break-word; /* Breaks long words if needed */
-  word-break: break-word; /* Ensures word breaks at boundaries */
+  padding: 0 20px 0 0; /* Adds space between text and adjacent elements */
+  flex-grow: 1; /* Allows text to expand and fill available space */
+  transition: color 1s ease; /* Smooth color transition on state change */
+  white-space: normal; /* Allows text to wrap naturally */
+  overflow-wrap: break-word; /* Breaks long words to prevent overflow */
+  word-break: break-word; /* Ensures words break at boundaries if needed */
+  cursor: pointer; /* Indicates the text is interactive */
 }
 
 /* Input focus styling when selected */
 #todo-input:focus {
-  outline: rgba(22, 131, 248, 0.21) 1px solid;
-  box-shadow: 0 1px 5px rgba(12, 220, 217, 0.577);
-  transition: ease 1s;
+  outline: rgba(23, 179, 179, 0.21) 0.1px solid; /* Subtle outline for focus indication */
+  box-shadow: 0 2px 6px rgba(208, 56, 36, 0.419); /* Adds depth when input is active */
+  transition: ease 0.8s; /* Smooth transition for focus effects */
 }
 
 /* Form container styles */
 form {
-  position: relative;
-  width: 65%;
+  position: relative; /* Enables absolute positioning of child elements */
+  width: 65%; /* Sets form width relative to parent container */
 }
 
 /* Add button styles */
 #add-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  padding: 0 20px;
-  margin: 0 0 20px 0;
-  background-color: var(--border-color);
-  border: none;
-  border-radius: 1000px;
-  font: inherit;
-  font-size: 22px;
-  font-weight: 600;
-  cursor: pointer;
-  background: linear-gradient(to right, #ff244ce6, #0daec7e4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 0.5px rgba(189, 255, 21, 0.116);
+  position: absolute; /* Positioned inside the form container */
+  top: 0; /* Aligns to top of form */
+  right: 0; /* Aligns to right edge of form */
+  height: 100%; /* Matches height of input field */
+  padding: 0 20px; /* Horizontal padding for button content */
+  margin: 0 0 20px 0; /* Bottom margin for spacing */
+  background-color: var(--border-color); /* Fallback background color */
+  border: none; /* Removes default button border */
+  border-radius: 1000px; /* Creates pill-shaped button */
+  font: inherit; /* Inherits font settings from parent */
+  font-size: 22px; /* Large text for visibility */
+  font-weight: 600; /* Bold text for emphasis */
+  cursor: pointer; /* Pointer cursor on hover */
+  background: linear-gradient(to right, #ff244ce6, #0daec7e4); /* Gradient fill for text */
+  -webkit-background-clip: text; /* Clips gradient to text shape */
+  -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+  text-shadow: 0 0 0.5px rgba(189, 255, 21, 0.116); /* Soft glow around text */
 }
 
-/*  Emoji button styles  -work in progress */
-/* .emoji-btn {
-  position: static;
-  top: 0;
-  left: 0;
-  height: auto;
-  padding: 10px;
-  background-color: gray;
-  border: none;
-  border-radius: 50px;
-  font: inherit;
-  font-size: 22px;
-  font-weight: 600;
-  cursor: pointer;
-} */
+/*  Emoji button styles  - work in progress.
+    This button is intended to allow users to insert emojis into tasks.
+    Currently commented out until feature is implemented.
+*/
+
+/* 
+  .emoji-btn {
+    position: static;       // Element follows normal document flow
+    top: 0;                 // No effect with static positioning
+    left: 0;                // No effect with static positioning
+    height: auto;           // Height adjusts based on content
+    padding: 10px;          // Internal spacing around text or emoji
+    background-color: gray; // Temporary neutral background color
+    border: none;           // Removes default button border
+    border-radius: 50px;    // Creates a pill-shaped button
+    font: inherit;          // Inherits font family from parent element
+    font-size: 22px;        // Large font size for visibility
+    font-weight: 600;       // Semi-bold text for emphasis
+    cursor: pointer;        // Pointer cursor on hover
+  }
+*/
 
 /* Delete button styles */
 .delete-btn {
-  padding-left: 2px;
-  margin: 4px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: fill 0.6s ease;
-  fill: #6565658b;
+  padding-left: 2px; /* slight spacing from adjacent elements */
+  margin: 4px; /* outer spacing around the icon */
+  background: none; /* transparent background */
+  border: none; /* removes default button border */
+  cursor: pointer; /* pointer cursor on hover */
+  transition: fill 0.6s ease; /* smooth transition for icon color */
+  fill: #6565658b; /* muted gray tone for default icon */
 }
 
 /* Edit button styles */
 .edit-btn {
-  margin: 0 0.2rem 0 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: fill 0.6s ease;
-  fill: #6565658b;
+  margin: 0 0.2rem 0 2rem; /* spacing between edit and other icons */
+  background: none; /* transparent background */
+  border: none; /* removes default button border */
+  cursor: pointer; /* pointer cursor on hover */
+  transition: fill 0.6s ease; /* smooth transition for icon color */
+  fill: #6565658b; /* muted gray tone for default icon */
 }
 
 /* Hover effect for delete button */
 @media (hover: hover) {
   .delete-btn:hover {
-    fill: rgb(195, 47, 47);
-    transition: fill 0.3s ease;
+    fill: rgb(195, 47, 47); /* red tint on hover to indicate deletion */
+    transition: fill 0.3s ease; /* faster transition for hover feedback */
   }
 }
 
 /* Hover effect for edit button */
 @media (hover: hover) {
   .edit-btn:hover {
-    fill: rgb(0, 255, 179);
-    transition: fill 0.3s ease;
+    fill: rgb(0, 255, 179); /* aqua tint on hover to indicate edit action */
+    transition: fill 0.3s ease; /* faster transition for hover feedback */
   }
 }
 
 /* Custom checkbox styles */
 .custom-checkbox {
-  padding: 1.1px;
-  margin-right: 10px;
-  background: none;
-  border: none;
+  padding: 1.1px; /* internal spacing for visual balance */
+  margin-right: 10px; /* spacing between checkbox and task text */
+  background: none; /* transparent background */
+  border: none; /* removes default border */
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  border: rgba(5, 137, 124, 0.689) 2px solid;
-  border-radius: 50%;
-  transition: 0.4s ease;
+  cursor: pointer; /* pointer cursor on hover */
+  border: rgb(3, 51, 63) 2px solid; /* dark border for default state */
+  border-radius: 50%; /* circular shape for checkbox */
+  transition: 0.8s ease; /* smooth transition for interactions */
+  width: 25px;
+  height: 25px;
 }
 
 .custom-checkbox:hover {
-  border: rgba(0, 255, 179, 0.64) 2px solid;
+  border: rgba(16, 168, 198, 0.362) 5px solid; /* aqua glow on hover */
+  transition: 0.3s ease; /* quicker feedback on hover */
 }
+
 /* Checked state for checkbox */
 input[type="checkbox"]:checked ~ .custom-checkbox {
-  background-color: rgba(52, 204, 146, 0.147);
-  border: rgb(25, 25, 25) 2px solid;
+  background-color: rgba(106, 105, 105, 0.142); /* subtle fill when checked */
+  border: rgb(25, 25, 25) 2px solid; /* darker border to indicate active state */
 }
 
 /* Change checkmark color when checked */
 input[type="checkbox"]:checked ~ .custom-checkbox svg {
-  fill: inherit;
-  transition: 1s ease;
+  fill: inherit; /* inherits fill from parent container */
+  transition: 1s ease; /* smooth transition for checkmark visibility */
 }
 
 /* Apply strikethrough effect when checked */
 input[type="checkbox"]:checked ~ .todo-txt {
-  text-decoration: line-through;
-  color: #464646;
-  transition: color 1s ease;
+  text-decoration: line-through; /* visually marks task as complete */
+  color: #393939; /* dimmed text color for completed task */
+  transition: color 1s ease; /* smooth fade effect */
 }
 
 /* Hide default checkbox */
 input[type="checkbox"] {
-  display: none;
+  display: none; /* hides native checkbox for custom styling */
 }
 
 .todo:has(input[type="checkbox"]:checked) {
-  border-color: 1px #00000085; /* Changes border to gray */
-  transition: ease 1s;
-  background: rgb(15, 15, 15);
+  border-color: 1px #000000; /* override border color when checked */
+  transition: ease 1s; /* smooth transition for background and border */
+  background-color: rgba(23, 23, 23, 0.859); /* darker background for completed task */
+  filter: none; /* removes hover shadow or effects */
 }
 
 /* Responsive styles for smaller screens */
@@ -356,17 +375,19 @@ input[type="checkbox"] {
     /* Minimum 12px, scales with screen, max 18px */
   }
 
-  .on-the-go {
-    top: 51px;
+  /* This is the tag line "Local Storage" located under the TO-DO h1 title  */
+  .local-storage {
+    top: 51px; /* repositioned for smaller screens */
     left: 110px;
+    /* May use this style in the future to rotage 'tag' */
     /* transform: rotateZ(20deg); */
-    border-radius: 4px;
-    padding: 1.5px 4px;
   }
 
-  p.on-the-go {
-    font-size: 8px;
-    padding: 0 7px;
+  /* This is the paragraph containing the "Local Storage" text  */
+  p.local-storage {
+    font-size: 8px; /* smaller font for mobile readability */
+    padding: 0 6px;
+    margin: 0;
   }
 
   #add-btn {
@@ -374,15 +395,15 @@ input[type="checkbox"] {
     /* position: unset;  */
 
     /* Styling ADD btn  */
-    width: 30%;
+    width: 30%; /* reduced width for mobile layout */
     margin: 8px 0;
     height: 35px;
-    font-size: 12px;
+    font-size: 12px; /* smaller text for compact layout */
     padding-right: 0;
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 3rem; /* scaled down heading for mobile */
   }
 
   .todo-app img {
@@ -391,27 +412,30 @@ input[type="checkbox"] {
     margin-bottom: 30px;
   }
 
+  .todo .todo-txt {
+    padding: 0 15px 0 0; /* tighter spacing for mobile */
+  }
+
   #todo-input:placeholder-shown {
-    font-size: 13px;
+    font-size: 15px; /* smaller placeholder text */
   }
 
   #todo-input {
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* reduced font size for input */
+    padding: 10px 70px 10px 20px; /* adjusted padding for smaller screen */
   }
 
   .todo-list {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* stack items vertically */
     align-items: baseline;
   }
 
   form {
-    width: 90%;
+    width: 90%; /* wider form for mobile layout */
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 }
-
-/* Themes: Will provide option for user to switch app color theme. */
