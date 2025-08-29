@@ -22,8 +22,8 @@ This app is actively being developed. Upcoming improvements & features include:
 - ~~✏️ Task editing functionality~~ - 08/24/25
 - ~~🏷 Enhanced UI and added a Local Storage tag under TO-DO title~~ - 08/28/25
 - ~~📱 Responsive design for mobile devices~~ - 08/29/25
-- 🌙 Optional theme color
-- ⬇️ Provide option to download entire Task List as a .txt file.
+- 🌙 Optional theme color 
+- ⬇️ Provide option to download entire Task List as a .txt file - 08/29/25
 
 ---
 
