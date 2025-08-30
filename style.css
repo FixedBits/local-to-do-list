@@ -21,9 +21,9 @@ html {
 }
 
 /* Apply background settings for the entire page */
+
 body {
-  background-color: var(--primary-bg-color); /* Fallback background */
-  background-image: url(images/background.webp); /* Background image */
+  background: linear-gradient(150deg, #134053, #000000, #134053);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,6 +33,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 /* Outer container to structure the app layout */
 .container {
   width: 100%; /* Full width of the viewport */
@@ -58,7 +59,7 @@ body {
   border-radius: 20px; /* Rounded corners for visual softness */
   min-height: 80vh; /* Ensures app fills most of the viewport */
   overflow: hidden; /* Prevents content from spilling out */
-  background: linear-gradient(to right, #000000e2, #220c0ed5); /* Gradient overlay */
+  background: linear-gradient(to right, #000000, #220c0e); /* Gradient overlay */
   border: 5px solid transparent; /* Used for layered background effects */
   background-origin: border-box; /* Ensures gradient respects border box */
 }
