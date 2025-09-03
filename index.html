@@ -7,6 +7,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96.png" />
+    <!-- Include AOS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
     <meta name="theme-color" content="#11ffc4" />
     <link rel="stylesheet" href="style.css" />
@@ -14,7 +16,7 @@
     <title>Local To-Do List</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container" data-aos="fade-down">
       <div class="todo-app">
         <div class="header-wrapper">
           <div class="title-wrapper">
@@ -30,7 +32,7 @@
           <img src="images/app-icon.webp" alt="To-Do List App Icon" loading="lazy" />
         </div>
         <div class="content-wrapper">
-          <form>
+          <form data-aos="fade-down">
             <input id="todo-input" type="text" placeholder="Write a task..." autocomplete="off" />
 
             <!-- Emoji Button -->
@@ -243,5 +245,14 @@
         </div>
       </div>
     </div>
+
+    <!-- Include AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000, // animation duration
+        once: true, // whether animation should happen only once
+      });
+    </script>
   </body>
 </html>

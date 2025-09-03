@@ -21,9 +21,8 @@ html {
 }
 
 /* Apply background settings for the entire page */
-
 body {
-  background: linear-gradient(150deg, #134053, #000000, #134053);
+  background: linear-gradient(150deg, #1995c274, #031113, #021e16);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -59,7 +58,7 @@ body {
   border-radius: 20px; /* Rounded corners for visual softness */
   min-height: 80vh; /* Ensures app fills most of the viewport */
   overflow: hidden; /* Prevents content from spilling out */
-  background: linear-gradient(to right, #000000, #220c0e); /* Gradient overlay */
+  /* background: linear-gradient(to right, #000000, #220c0e); */ /* Gradient overlay */
   border: 5px solid transparent; /* Used for layered background effects */
   background-origin: border-box; /* Ensures gradient respects border box */
 }
@@ -210,7 +209,7 @@ ul {
   backdrop-filter: blur(20px); /* Maintains blur on hover */
   transition: 0.3s ease; /* Faster transition on hover */
   /* Optional bottom border */
-  filter: drop-shadow(1px 1px 2px rgba(17, 105, 160, 0.358)); /* Glow effect */
+  filter: drop-shadow(1px 1px 2px rgba(17, 105, 160, 0.658)); /* Glow effect */
 }
 /* Style for text inside to-do items */
 .todo .todo-txt {
@@ -226,7 +225,7 @@ ul {
 /* Input focus styling when selected */
 #todo-input:focus {
   outline: rgba(23, 179, 179, 0.21) 0.1px solid; /* Subtle outline for focus indication */
-  box-shadow: 0 2px 6px rgba(208, 56, 36, 0.419); /* Adds depth when input is active */
+  box-shadow: 0 2px 6px rgba(208, 56, 36, 0.419);
   transition: ease 0.8s; /* Smooth transition for focus effects */
 }
 
