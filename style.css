@@ -105,6 +105,8 @@ p.local-storage {
   font-weight: 600; /* Semi-bold text */
   opacity: 86%; /* Slight transparency */
   font-size: 10px; /* Small font size for tag */
+  /* Prevents users from selecting the text */
+  user-select: none;
 }
 
 /* Style for the main heading */
@@ -122,6 +124,8 @@ h1 {
   -webkit-background-clip: text; /* Clips gradient to text */
   -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
   text-shadow: 0 0 0.5px rgba(189, 255, 21, 0.116); /* Soft glow around text */
+  /* Prevents users from selecting the text */
+  user-select: none;
 }
 
 /* Styling for images inside the container */
@@ -129,6 +133,8 @@ h1 {
   width: 150px; /* Fixed width */
   height: 150px; /* Fixed height */
   margin: 1rem; /* Spacing around image */
+  /* Prevents users from selecting the text */
+  user-select: none;
 }
 
 /* Header layout */
@@ -178,7 +184,8 @@ ul {
   width: 100%; /* Full width of parent */
   height: 50px; /* Fixed height */
   transition: ease 0.4s; /* Smooth transitions */
-  font-size: 17px; /* Base font size */
+  font-size: 17px; /* Base font size */ /* Prevents users from selecting the text */
+  user-select: none;
 }
 
 #todo-input:placeholder-shown {
@@ -253,7 +260,8 @@ form {
   background: linear-gradient(to right, #ff244ce6, #0daec7e4); /* Gradient fill for text */
   -webkit-background-clip: text; /* Clips gradient to text shape */
   -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
-  text-shadow: 0 0 0.5px rgba(189, 255, 21, 0.116); /* Soft glow around text */
+  /* Prevents users from selecting the text */
+  user-select: none;
 }
 
 /*  Emoji button styles  - work in progress.
