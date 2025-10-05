@@ -17,11 +17,6 @@ A lightweight, privacy-first To-Do List app built with vanilla JavaScript. Tasks
 
 ## 🚧 Work in Progress
 
-This app is actively being developed. Upcoming improvements & features include:
-
-- ~~✏️ Task editing functionality~~ 
-- ~~🏷 Enhanced UI and added a Local Storage tag under TO-DO title~~
-- ~~📱 Responsive design for mobile devices~~
 - 🌙 Optional theme color 
 - ⬇️ Provide option to download entire Task List as a .txt file
 
