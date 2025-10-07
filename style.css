@@ -1,7 +1,7 @@
 :root {
   /* Global color variables for theme customization */
   --primary-bg-color: rgb(23, 23, 23); /* Main background color */
-  --secondary-bg-color: #000000c1; /* Semi-transparent overlay for containers */
+  --secondary-bg-color: #0000005e; /* Semi-transparent overlay for containers */
   --border-color: rgba(0, 255, 162, 0.696); /* Accent border color */
   --border-color-translucent: rgba(17, 255, 196, 0.597); /* Lighter accent for hover/focus */
 }
@@ -22,7 +22,8 @@ html {
 
 /* Apply background settings for the entire page */
 body {
-  background: linear-gradient(150deg, #1995c274, #031113, #021e16);
+  /* Light Background */
+  background: linear-gradient(190deg, #15e966, #004a28, #0d7040, #0bd976);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -31,6 +32,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Dark Background */
+.dark-mode {
+  background: linear-gradient(190deg, #dee915, #242424, #000000, #897aea);
 }
 
 /* Outer container to structure the app layout */
@@ -203,12 +209,11 @@ ul {
   border: solid 1px rgba(0, 255, 162, 0.696); /* Accent border */
   font-size: clamp(0.7rem, 1vw, 1.1rem); /* Responsive font size */
   transition: 0.4s ease; /* Smooth transitions */
-  background-color: rgba(25, 25, 25, 0.558); /* Semi-transparent background */
+  background-color: rgba(132, 132, 132, 0.113); /* Semi-transparent background */
   backdrop-filter: blur(20px); /* Softens background */
   border: 0.6px solid transparent; /* Placeholder border */
   background-origin: border-box; /* Ensures background respects border */
   background-clip: padding-box, border-box; /* Clips background to padding and border */
-  background: rgba(0, 0, 0, 0.589); /* Final background layer */
 }
 
 .todo:hover {
@@ -372,8 +377,9 @@ input[type="checkbox"] {
 .todo:has(input[type="checkbox"]:checked) {
   border-color: 1px #000000; /* override border color when checked */
   transition: ease 1s; /* smooth transition for background and border */
-  background-color: rgba(23, 23, 23, 0.859); /* darker background for completed task */
+  background-color: rgba(2, 1, 1, 0.452); /* darker background for completed task */
   filter: none; /* removes hover shadow or effects */
+  box-shadow: 0 1px 2px rgba(108, 108, 108, 0.358);
 }
 
 /* Responsive styles for smaller screens */
