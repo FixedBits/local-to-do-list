@@ -13,7 +13,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 html {
@@ -23,7 +23,7 @@ html {
 /* Apply background settings for the entire page */
 body {
   /* Light Background */
-  background: linear-gradient(190deg, #15e966, #004a28, #0d7040, #0bd976);
+  background: linear-gradient(190deg, #0c0c0c, #0cb97f9a, #1f1f1f, #178d56b3);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -351,30 +351,30 @@ form {
 }
 
 /* Checked state for checkbox */
-input[type="checkbox"]:checked ~ .custom-checkbox {
+input[type='checkbox']:checked ~ .custom-checkbox {
   background-color: rgba(106, 105, 105, 0.142); /* subtle fill when checked */
   border: rgb(25, 25, 25) 2px solid; /* darker border to indicate active state */
 }
 
 /* Change checkmark color when checked */
-input[type="checkbox"]:checked ~ .custom-checkbox svg {
+input[type='checkbox']:checked ~ .custom-checkbox svg {
   fill: inherit; /* inherits fill from parent container */
   transition: 1s ease; /* smooth transition for checkmark visibility */
 }
 
 /* Apply strikethrough effect when checked */
-input[type="checkbox"]:checked ~ .todo-txt {
+input[type='checkbox']:checked ~ .todo-txt {
   text-decoration: line-through; /* visually marks task as complete */
   color: #393939; /* dimmed text color for completed task */
   transition: color 1s ease; /* smooth fade effect */
 }
 
 /* Hide default checkbox */
-input[type="checkbox"] {
+input[type='checkbox'] {
   display: none; /* hides native checkbox for custom styling */
 }
 
-.todo:has(input[type="checkbox"]:checked) {
+.todo:has(input[type='checkbox']:checked) {
   border-color: 1px #000000; /* override border color when checked */
   transition: ease 1s; /* smooth transition for background and border */
   background-color: rgba(2, 1, 1, 0.452); /* darker background for completed task */
