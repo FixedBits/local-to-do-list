@@ -23,7 +23,7 @@ html {
 /* Apply background settings for the entire page */
 body {
   /* Light Background */
-  background: linear-gradient(190deg, #0c0c0c, #0cb97f9a, #1f1f1f, #178d56b3);
+  background: linear-gradient(190deg, #00c9b8, #003844, #001f2d, #00b5a0);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -34,7 +34,7 @@ body {
   justify-content: center;
 }
 
-/* Dark Background */
+/* Dark Background with neon color and moon color */
 .dark-mode {
   background: linear-gradient(190deg, #dee915, #242424, #000000, #897aea);
 }
@@ -67,6 +67,7 @@ body {
   /* background: linear-gradient(to right, #000000, #220c0e); */ /* Gradient overlay */
   border: 5px solid transparent; /* Used for layered background effects */
   background-origin: border-box; /* Ensures gradient respects border box */
+  box-shadow: 3px 2px 5px rgba(0, 0, 56, 0.587);
 }
 
 .title-wrapper {
@@ -338,7 +339,7 @@ form {
   align-items: center;
   justify-content: center;
   cursor: pointer; /* pointer cursor on hover */
-  border: rgb(3, 51, 63) 2px solid; /* dark border for default state */
+  border: rgba(142, 184, 195, 0.61) 2px solid; /* dark border for default state */
   border-radius: 50%; /* circular shape for checkbox */
   transition: 0.8s ease; /* smooth transition for interactions */
   width: 25px;
