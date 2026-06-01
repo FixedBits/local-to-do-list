@@ -1,4 +1,4 @@
-# 📋 Local To-Do List
+#  Local To-Do List
 
 A lightweight, privacy-first To-Do List app built with vanilla JavaScript. Tasks are stored locally on your device using `localStorage`, so there's no need to sign up or sync with external services. Just open the app, jot down your tasks, and stay organized.
 
