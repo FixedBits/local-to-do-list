@@ -92,7 +92,9 @@ function createTodoItem(todo, todoIndex) {
   // When clicked, it removes the task from the array and updates the UI.
   const deleteBtn = todoLI.querySelector(".delete-btn"); // Selects the delete button
   deleteBtn.addEventListener("click", () => {
-    deleteTodoItem(todoIndex); // Calls function to delete the task
+    if (confirm("Delete this task?")) {
+      deleteTodoItem(todoIndex); // Calls function to delete the task
+    }
   });
 
   // We add functionality to the edit button.
