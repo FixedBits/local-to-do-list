@@ -1,48 +1,49 @@
-#  Local To-Do List
+# Local To-Do List
 
-A lightweight, privacy-first To-Do List app built with vanilla JavaScript. Tasks are stored locally on your device using `localStorage`, so there's no need to sign up or sync with external services. Just open the app, jot down your tasks, and stay organized.
+A to-do list app built with vanilla JavaScript. Tasks are saved in the browser with `localStorage`, so there is no account or server.
 
----
+**Live demo:** https://fixedbits.github.io/local-to-do-list/
 
-## ✨ Features
+![To-Do List on desktop](screenshots/todo-app.png)
 
-- ✅ Add tasks instantly via a simple form
-- 📌 Tasks are stored locally. No cloud. No account. No tracking.
-- 🗂️ Mark tasks as completed with a custom checkbox UI
-- 🖊️ Edit tasks inline with prompt editor  
-- 🗑️ Delete tasks individually
-- 🔄 Persistent storage using `localStorage`
+![To-Do List on mobile](screenshots/todo-mobile.png)
 
----
+## Features
 
-## 🚧 Work in Progress
+- Add tasks with a form
+- Mark tasks as completed with a custom checkbox
+- Edit tasks with a prompt
+- Delete tasks with a confirmation prompt
+- Tasks persist after a page refresh using `localStorage`
 
-- 🌙 Optional theme color 
-- ⬇️ Provide option to download entire Task List as a .txt file
-
----
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 - HTML5
 - CSS3
-- JavaScript (ES6+)
+- JavaScript
 - `localStorage` API
 
----
+## Run Locally
 
-## 📌 Note
+1. Clone the repository:
 
-All data is stored locally in your browser. Clearing your browser cache or switching devices will reset your task list.
+```
+git clone https://github.com/FixedBits/local-to-do-list.git
+```
 
----
+2. Open the folder in VS Code
+3. Open index.html with Live Server
 
-## 🙌 Contributing
+## Notes
 
-Feel free to fork the repo and submit pull requests. Suggestions and improvements are always welcome!
+Data is stored in your browser only. Clearing your browser data or switching devices resets the task list.
 
----
+## Planned
 
-## 📄 License
+- Inline task editing
+- Custom delete confirmation dialog
+- Download the task list as a .txt file
 
-This project is open-source and available under the [MIT License](LICENSE).
+## License
+
+[MIT License](LICENSE)
