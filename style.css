@@ -12,7 +12,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 html {
@@ -293,27 +293,27 @@ form {
   transition: 0.3s ease;
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   display: none;
 }
 
-input[type="checkbox"]:checked ~ .custom-checkbox {
+input[type='checkbox']:checked ~ .custom-checkbox {
   background-color: rgba(106, 105, 105, 0.142);
   border: rgb(25, 25, 25) 2px solid;
 }
 
-input[type="checkbox"]:checked ~ .custom-checkbox svg {
+input[type='checkbox']:checked ~ .custom-checkbox svg {
   fill: inherit;
   transition: 1s ease;
 }
 
-input[type="checkbox"]:checked ~ .todo-txt {
+input[type='checkbox']:checked ~ .todo-txt {
   text-decoration: line-through;
   color: #393939;
   transition: color 1s ease;
 }
 
-.todo:has(input[type="checkbox"]:checked) {
+.todo:has(input[type='checkbox']:checked) {
   border-color: #000000;
   transition: ease 1s;
   background-color: rgba(2, 1, 1, 0.452);
@@ -328,7 +328,11 @@ input[type="checkbox"]:checked ~ .todo-txt {
   }
 
   .todo-app {
-    margin: 1rem;
+    margin: 0;
+  }
+
+  .container {
+    padding: 1rem 0.5rem;
   }
 
   .local-storage {
@@ -357,7 +361,7 @@ input[type="checkbox"]:checked ~ .todo-txt {
   .todo-app img {
     width: 100px;
     height: 100px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 
   .todo .todo-txt {
